@@ -1,0 +1,134 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.shockang.study</groupId>
+    <artifactId>algorithm</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <inceptionYear>2008</inceptionYear>
+    <properties>
+        <java.version>1.8</java.version>
+        <scala.version>2.12.15</scala.version>
+
+        <junit.version>5.8.1</junit.version>
+
+        <scala-maven-plugin.version>4.3.0</scala-maven-plugin.version>
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+    </properties>
+
+    <dependencies>
+        <!-- scala start -->
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-compiler</artifactId>
+            <version>${scala.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-reflect</artifactId>
+            <version>${scala.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <version>${scala.version}</version>
+        </dependency>
+        <!-- scala end -->
+
+        <!-- test start -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- test end -->
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- 以下 plugin 配置参考 Apache Spark 3.2.0 -->
+            <plugin>
+                <groupId>net.alchim31.maven</groupId>
+                <artifactId>scala-maven-plugin</artifactId>
+                <version>${scala-maven-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>eclipse-add-source</id>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>scala-compile-first</id>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>scala-test-compile-first</id>
+                        <goals>
+                            <goal>testCompile</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>attach-scaladocs</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>doc-jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <scalaVersion>${scala.version}</scalaVersion>
+                    <checkMultipleScalaVersions>true</checkMultipleScalaVersions>
+                    <failOnMultipleScalaVersions>true</failOnMultipleScalaVersions>
+                    <recompileMode>incremental</recompileMode>
+                    <args>
+                        <arg>-unchecked</arg>
+                        <arg>-deprecation</arg>
+                        <arg>-feature</arg>
+                        <arg>-explaintypes</arg>
+                        <arg>-target:jvm-${java.version}</arg>
+                        <arg>-Xfatal-warnings</arg>
+                        <arg>-Ywarn-unused:imports</arg>
+                        <arg>-P:silencer:globalFilters=.*deprecated.*</arg>
+                    </args>
+                    <jvmArgs>
+                        <jvmArg>-Xss128m</jvmArg>
+                        <jvmArg>-Xms4g</jvmArg>
+                        <jvmArg>-Xmx6g</jvmArg>
+                        <jvmArg>-XX:MaxMetaspaceSize=2g</jvmArg>
+                        <jvmArg>-XX:ReservedCodeCacheSize=4g</jvmArg>
+                    </jvmArgs>
+                    <javacArgs>
+                        <javacArg>-source</javacArg>
+                        <javacArg>${java.version}</javacArg>
+                        <javacArg>-target</javacArg>
+                        <javacArg>${java.version}</javacArg>
+                        <javacArg>-Xlint:all,-serial,-path,-try</javacArg>
+                    </javacArgs>
+                    <compilerPlugins>
+                        <compilerPlugin>
+                            <groupId>com.github.ghik</groupId>
+                            <artifactId>silencer-plugin_${scala.version}</artifactId>
+                            <version>1.7.6</version>
+                        </compilerPlugin>
+                    </compilerPlugins>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <skipMain>true</skipMain> <!-- skip compile -->
+                    <skip>true</skip> <!-- skip testCompile -->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
