@@ -20,7 +20,6 @@ object SorterMain extends App {
   assertSorter(new MergeSorter3)
   assertSorter(new QuickSorter)
   assertSorter(new HeapSorter)
-  //assertSorter(new CountingSorter)
 
   private def assertSorter(sorter: Sorter): Unit = {
     println(format(s"Start to assert:${sorter.getClass.getSimpleName}"))
@@ -38,7 +37,7 @@ object SorterMain extends App {
     a
   }
 
-  private def assertNull(sorter: Sorter) {
+  private def assertNull(sorter: Sorter): Unit = {
     assertArray(sorter, null)
     assertArray(sorter, new Array[Int](0))
   }
