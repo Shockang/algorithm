@@ -1,8 +1,12 @@
-package com.shockang.study.algorithm.scala.leetcode.util
+package com.shockang.study.algorithm.scala.util
 
 import java.util.StringJoiner
 import scala.language.implicitConversions
 
+/**
+ *
+ * @author Shockang
+ */
 object ArrayUtil {
   implicit def stringToIntArray(str: String): Array[Int] = {
     var s = str.trim()
@@ -23,5 +27,9 @@ object ArrayUtil {
       sj.add(String.valueOf(i))
     }
     sj.toString
+  }
+
+  def print[T](a: Array[T]): Unit = {
+    println(a.mkString(","))
   }
 }

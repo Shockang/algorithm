@@ -1,6 +1,6 @@
 package com.shockang.study.algorithm.scala.leetcode.leetcode1_100.leetcode1.solution1
 
-import com.shockang.study.algorithm.scala.leetcode.util.ArrayUtil._
+import com.shockang.study.algorithm.scala.util.ArrayUtil._
 import org.junit.jupiter.api.Test
 
 class SolutionTest {

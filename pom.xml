@@ -12,6 +12,8 @@
 
         <scala-maven-plugin.version>4.3.0</scala-maven-plugin.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+
+        <guava.version>31.0.1-jre</guava.version>
     </properties>
 
     <dependencies>
@@ -41,6 +43,14 @@
             <scope>test</scope>
         </dependency>
         <!-- test end -->
+
+        <!-- tool start -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+        </dependency>
+        <!-- tool end -->
 
     </dependencies>
 
