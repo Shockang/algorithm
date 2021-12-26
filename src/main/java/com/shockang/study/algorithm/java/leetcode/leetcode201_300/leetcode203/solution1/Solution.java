@@ -8,15 +8,15 @@ import com.shockang.study.algorithm.java.leetcode.common.ListNode;
  * @author Shockang
  */
 public class Solution {
-		public ListNode removeElements(ListNode head, int val) {
-				if (head == null) return null;
-				ListNode dummy = new ListNode(), prev = dummy;
-				dummy.next = head;
-				while (head != null) {
-						if (head.val == val) prev.next = head.next;
-						else prev = head;
-						head = head.next;
-				}
-				return dummy.next;
+	public ListNode removeElements(ListNode head, int val) {
+		if (head == null) return null;
+		ListNode dummy = new ListNode(), prev = dummy;
+		dummy.next = head;
+		while (head != null) {
+			if (head.val == val) prev.next = head.next;
+			else prev = head;
+			head = head.next;
 		}
+		return dummy.next;
+	}
 }
