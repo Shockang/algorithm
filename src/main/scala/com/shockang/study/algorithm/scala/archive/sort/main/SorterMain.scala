@@ -46,11 +46,7 @@ object SorterMain extends App {
     if (a == null) return
     val original = a.clone()
     sorter.sort(a)
-    if (!checkArray(original, a)) {
-      println(original.sorted.mkString("Array(", ", ", ")"))
-      println(a.mkString("Array(", ", ", ")"))
-      throw new IllegalStateException()
-    }
+    assert(checkArray(original, a))
   }
 
   private def checkArray(original: Array[Int], sorted: Array[Int]): Boolean = {
