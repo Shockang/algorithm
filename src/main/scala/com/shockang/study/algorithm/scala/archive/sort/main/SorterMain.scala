@@ -32,7 +32,7 @@ object SorterMain extends App {
     val n = Random.nextInt(10000)
     val a = new Array[Int](n)
     for (i <- a.indices) {
-      a(i) = Random.nextInt(10000)
+      a(i) = Random.nextInt()
     }
     a
   }
