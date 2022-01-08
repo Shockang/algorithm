@@ -28,7 +28,7 @@ object SorterMain extends App {
     println(format(s"Succeed to assert:${sorter.getClass.getSimpleName}"))
   }
 
-  private def generateRandomArray(): Array[Int] = {
+  def generateRandomArray(): Array[Int] = {
     val n = Random.nextInt(10000)
     val a = new Array[Int](n)
     for (i <- a.indices) {
