@@ -5,6 +5,7 @@ object Main extends App {
   list.add(0)
   list.add(1)
   list.add(2)
+  // scalastyle:off println
   println(list.size)
   println(list.toString)
   list.add(3)
@@ -25,4 +26,5 @@ object Main extends App {
   println(list.toString)
   println(list.get(3))
   list.delete(10)
+  // scalastyle:on println
 }

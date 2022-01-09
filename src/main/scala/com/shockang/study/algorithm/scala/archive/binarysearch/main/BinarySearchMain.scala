@@ -13,6 +13,7 @@ object BinarySearchMain extends App {
   assertBinarySearch(new SimpleBSearch)
 
   def assertBinarySearch(search: BinarySearch) {
+    // scalastyle:off println
     println(format(s"start to assert:${search.getClass.getSimpleName}"))
     assertNull(search)
     for (_ <- Range(0, 100)) {
@@ -21,6 +22,7 @@ object BinarySearchMain extends App {
       assert(a(search.search(a, elem)) == a(index))
     }
     println(format(s"succeed to assert:${search.getClass.getSimpleName}"))
+    // scalastyle:on println
   }
 
   def assertNull(search: BinarySearch): Unit = {

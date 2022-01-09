@@ -30,6 +30,8 @@ object ArrayUtil {
   }
 
   def print[T](a: Array[T]): Unit = {
+    // scalastyle:off println
     println(a.mkString(","))
+    // scalastyle:on println
   }
 }

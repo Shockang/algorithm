@@ -1,7 +1,8 @@
 package com.shockang.study.algorithm.scala.archive.stack
 
 object Main extends App {
-  //var stack: Stack[Int] = new ArrayStack(5)
+  // var stack: Stack[Int] = new ArrayStack(5)
+  // scalastyle:off println
   var stack: Stack[Int] = new LinkedListStack()
   out(stack)
   try {
@@ -35,5 +36,5 @@ object Main extends App {
     }
     println("************************************************")
   }
-
+  // scalastyle:on println
 }

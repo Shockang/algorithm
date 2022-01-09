@@ -9,7 +9,9 @@ object NodeUtil {
       print(cur.v + " ,")
       cur = cur.next
     }
+    // scalastyle:off println
     println()
+    // scalastyle:on println
   }
 
   def printDoubleNode(node: DoubleNode): Unit = {
@@ -21,7 +23,9 @@ object NodeUtil {
       pre = cur
       cur = cur.next
     }
+    // scalastyle:off println
     println()
+    // scalastyle:on println
   }
 
   def array2Node(array: Array[Int]): Node = {

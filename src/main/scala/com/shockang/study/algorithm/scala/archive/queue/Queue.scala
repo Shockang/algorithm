@@ -7,18 +7,18 @@ package com.shockang.study.algorithm.scala.archive.queue
  */
 trait Queue[E] {
 
-  //队列大小
+  // 队列大小
   var size: Int
 
-  //是否为空
+  // 是否为空
   def isEmpty: Boolean
 
-  //清空队列
+  // 清空队列
   def clear()
 
-  //入队
+  // 入队
   def enqueue(e: E)
 
-  //出队
+  // 出队
   def dequeue(): E
 }

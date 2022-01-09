@@ -1,8 +1,9 @@
 package com.shockang.study.algorithm.scala.archive.queue
 
 object Main extends App {
-  //val queue: Queue[Int] = new ArrayQueue[Int](10)
-  //val queue: Queue[Int] = new LinkedListQueue[Int]()
+  // val queue: Queue[Int] = new ArrayQueue[Int](10)
+  // val queue: Queue[Int] = new LinkedListQueue[Int]()
+  // scalastyle:off println
   val queue: Queue[Int] = new CircularQueue[Int](5)
   out()
   try {
@@ -56,4 +57,5 @@ object Main extends App {
     }
     println("************************************************")
   }
+  // scalastyle:on println
 }

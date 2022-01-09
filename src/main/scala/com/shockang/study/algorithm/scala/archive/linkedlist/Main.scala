@@ -3,7 +3,7 @@ package com.shockang.study.algorithm.scala.archive.linkedlist
 object Main extends App {
   val list: MyLinkedList[Int] = new MyLinkedList[Int]()
   out(list)
-  //新增
+  // 新增
   list.add(0)
   list.add(1)
   list.add(2)
@@ -29,12 +29,13 @@ object Main extends App {
   out(list)
   list.push(-3)
   out(list)
-  //修改
+  // 修改
   list.set(4, 10)
   out(list)
-  //删除
+  // 删除
   list.remove
   out(list)
+  // scalastyle:off println
   println(list.removeFirstOccurrence(10))
   out(list)
   println(list.removeLastOccurrence(9))
@@ -47,6 +48,7 @@ object Main extends App {
   out(list)
   list.clear()
   out(list)
+  // scalastyle:on println
 
   def out(list: MyLinkedList[Int]): Unit = {
     println("****************************************")

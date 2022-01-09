@@ -1,6 +1,6 @@
 package com.shockang.study.algorithm.scala.archive.linkedlist.merge.s2
 
-import com.shockang.study.algorithm.common.scala.Node
+import com.shockang.study.algorithm.scala.common.Node
 
 object MergeList {
   def merge(node1: Node, node2: Node): Node = {
