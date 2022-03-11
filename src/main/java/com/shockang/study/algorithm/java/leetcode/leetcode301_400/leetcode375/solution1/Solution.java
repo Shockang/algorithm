@@ -6,7 +6,6 @@ package com.shockang.study.algorithm.java.leetcode.leetcode301_400.leetcode375.s
 public class Solution {
 	public int getMoneyAmount(int n) {
 		int[][] dp = new int[n + 2][n + 2];
-		int tmp;
 		for (int i = n; i > 0; i--) {
 			for (int j = i; j <= n; j++) {
 				if (i == j) {
@@ -14,8 +13,7 @@ public class Solution {
 				} else {
 					dp[i][j] = Integer.MAX_VALUE;
 					for (int k = i; k <= j; k++) {
-						tmp = k + Math.max(dp[i][k - 1], dp[k + 1][j]);
-						dp[i][j] = Math.min(dp[i][j], tmp);
+						dp[i][j] = Math.min(dp[i][j], k + Math.max(dp[i][k - 1], dp[k + 1][j]));
 					}
 				}
 			}
