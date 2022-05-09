@@ -13,7 +13,7 @@ class HeapSorter extends Sorter {
   override def sort(a: Array[Int]): Unit = {
     if (a == null || a.length < 2) return
     //从第一个非叶子结点从下至上，从右至左调整结构
-    for (i <- (a.length - 1) / 2 to 0 by -1) {
+    for (i <- (a.length - 2) / 2 to 0 by -1) {
       adjustHeap(a, i, a.length)
     }
     //调整堆结构+交换堆顶元素与末尾元素

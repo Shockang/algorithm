@@ -30,10 +30,13 @@ class CountingSorter extends Sorter {
     }
     // 临时数组r，存储排序之后的结果
     val r = new Array[Int](n)
-    // 计算排序的关键步骤，有点难理解
+    // 计数排序的关键步骤，有点难理解
     for (i <- n - 1 to 0 by -1) {
+      // c(a(i)) 表示对于 a(i) 这个数还有几个数比它小
       val index = c(a(i)) - 1
+      // 放到对应的位置
       r(index) = a(i)
+      // 相应的 c 中将统计和 a(i) 相等的个数减一
       c(a(i)) -= 1
     }
     // 将结果拷贝给a数组
