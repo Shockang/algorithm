@@ -37,7 +37,7 @@ public class Solution {
 			return null;
 		}
 
-		// 选择 post_idx 位置的元素作为当前子树根节点
+		// 选择 postIdx 位置的元素作为当前子树根节点
 		int rootVal = postorder[postIdx];
 		TreeNode root = new TreeNode(rootVal);
 

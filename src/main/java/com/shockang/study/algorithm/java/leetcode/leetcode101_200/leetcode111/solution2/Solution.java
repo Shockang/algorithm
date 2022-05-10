@@ -2,8 +2,8 @@ package com.shockang.study.algorithm.java.leetcode.leetcode101_200.leetcode111.s
 
 import com.shockang.study.algorithm.java.leetcode.common.TreeNode;
 
-import java.util.Deque;
 import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * BFS
@@ -15,7 +15,7 @@ public class Solution {
 		if (root == null) {
 			return 0;
 		}
-		Deque<TreeNode> deque = new LinkedList<>();
+		Queue<TreeNode> deque = new LinkedList<>();
 		deque.offer(root);
 		int level = 1;
 		while (!deque.isEmpty()) {

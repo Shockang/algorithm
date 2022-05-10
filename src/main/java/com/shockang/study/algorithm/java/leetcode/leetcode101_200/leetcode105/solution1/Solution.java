@@ -13,7 +13,17 @@ import java.util.Map;
 public class Solution {
 	private Map<Integer, Integer> indexMap;
 
-	public TreeNode buildTree(int[] preorder, int preLeft, int preRight, int inLeft, int inRight) {
+	public TreeNode buildTree(int[] preorder, int[] inorder) {
+		int n = preorder.length;
+		// 构造哈希映射，帮助我们快速定位根节点
+		indexMap = new HashMap<>();
+		for (int i = 0; i < n; i++) {
+			indexMap.put(inorder[i], i);
+		}
+		return buildTree(preorder, 0, n - 1, 0, n - 1);
+	}
+
+	private TreeNode buildTree(int[] preorder, int preLeft, int preRight, int inLeft, int inRight) {
 		if (preLeft > preRight || inLeft > inRight) {
 			return null;
 		}
@@ -32,15 +42,5 @@ public class Solution {
 		// 先序遍历中「从 左边界+1+左子树节点数目 开始到 右边界」的元素就对应了中序遍历中「从 根节点定位+1 到 右边界」的元素
 		root.right = buildTree(preorder, pIndex - inLeft + preLeft + 1, preRight, pIndex + 1, inRight);
 		return root;
-	}
-
-	public TreeNode buildTree(int[] preorder, int[] inorder) {
-		int n = preorder.length;
-		// 构造哈希映射，帮助我们快速定位根节点
-		indexMap = new HashMap<Integer, Integer>();
-		for (int i = 0; i < n; i++) {
-			indexMap.put(inorder[i], i);
-		}
-		return buildTree(preorder, 0, n - 1, 0, n - 1);
 	}
 }

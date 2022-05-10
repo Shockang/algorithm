@@ -24,7 +24,7 @@ public class Solution {
 		if (target < 0) return;
 		for (int i = cur; i < cand.length; i++) {
 			if (i > cur && cand[i] == cand[i - 1]) continue;
-			path.add(path.size(), cand[i]);
+			path.add(cand[i]);
 			dfs(cand, i + 1, target - cand[i], path, res);
 			path.remove(path.size() - 1);
 		}
